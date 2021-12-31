@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const express = require("express");
+const morgan = require("morgan");
 const method_override = require("method-override");
+const ejs_mate = require("ejs-mate");
 const path = require("path");
 const Campground = require("./models/campground");
 
@@ -10,10 +12,15 @@ const db = "yelp-camp";
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
 // middleware
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(method_override("_method"));
+app.use(morgan("dev"));
+
+// more setup
+app.engine("ejs", ejs_mate);
 
 // db connection and server starting
 mongoose.connect(`mongodb://localhost:27017/${db}`);
@@ -66,6 +73,12 @@ app.delete("/campgrounds/:id", async (req, res) => {
   const { id } = req.params;
   await Campground.findByIdAndDelete(id);
   res.redirect("/campgrounds");
+});
+
+// #404
+
+app.use((req, res) => {
+  res.status(404).send("Not Found");
 });
 
 // test route for db used with postman
