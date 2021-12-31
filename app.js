@@ -15,6 +15,7 @@ app.set("views", path.join(__dirname, "views"));
 
 // middleware
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "node_modules/bootstrap/dist")));
 app.use(express.urlencoded({ extended: true }));
 app.use(method_override("_method"));
 app.use(morgan("dev"));
