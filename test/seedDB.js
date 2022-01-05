@@ -21,6 +21,10 @@ const seedDB = async function () {
     await new Campground({
       name: `${sample(descriptors)},${sample(places)}`,
       location: `${cities[rando].city},${cities[rando].state}`,
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus molestias iste officia nam repellendus ex porro, eaque dolorem numquam corporis, impedit rem praesentium accusantium dolor, dolorum sapiente provident? Sapiente, voluptatibus.",
+      image:
+        "https://images.unsplash.com/photo-1469053913977-1d2f009670d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHw0ODQzNTF8fHx8fHx8MTY0MTMyMTg4NQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
     }).save();
   }
 };
