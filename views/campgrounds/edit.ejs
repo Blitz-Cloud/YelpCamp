@@ -1,14 +1,73 @@
 <% layout("layout/boilerplate") %>
 
-<h1>Name : <%= foundData.name %></h1>
-<form action="/campgrounds/<%=foundData.id%>?_method=PATCH " method="post">
-  <label for="location">New location</label>
-  <input
-    type="text"
-    name="location"
-    id="location"
-    value="<%= foundData.location %> "
-  />
-  <button>Submit</button>
-</form>
-<a href="/campgrounds">Home</a>
+<div class="row mb-3">
+  <h1 class="text-center mb-3">Edit campground</h1>
+  <div class="col-6 offset-3">
+    <form action="/campgrounds/<%=foundData.id%>?_method=PATCH " method="post">
+      <div class="form-group mb-3">
+        <label class="form-label" for="name">The new location name</label>
+        <input
+          class="form-control"
+          type="text"
+          name="name"
+          id="name"
+          value="<%= foundData.name %>"
+        />
+      </div>
+      <div class="form-group mb-3">
+        <label class="form-label" for="location">The location</label>
+        <input
+          class="form-control"
+          type="text"
+          name="location"
+          id="location"
+          value="<%= foundData.location %>"
+        />
+      </div>
+      <div class="form-group mb-3">
+        <label class="form-label" for="image">Image link</label>
+        <input
+          class="form-control"
+          type="text"
+          name="image"
+          id="price"
+          value="<%= foundData.image %>"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="price">Price</label>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+          </div>
+          <input
+            id="price"
+            name="price"
+            type="number"
+            class="form-control"
+            aria-label="Amount (to the nearest dollar)"
+            placeholder="0.00"
+            min="0"
+            value="<%= foundData.price%>"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          name="description"
+          id="description"
+          cols="30"
+          rows=""
+          class="form-control"
+          type="text"
+        >
+ <%= foundData.description%></textarea
+        >
+      </div>
+
+      <button class="btn btn-primary" type="submit">Submit</button>
+      <a class="btn btn-primary" href="/campgrounds">Home</a>
+    </form>
+  </div>
+</div>

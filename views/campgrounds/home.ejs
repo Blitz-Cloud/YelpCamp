@@ -6,8 +6,24 @@
 </div>
 <ul>
   <% for (let data of foundData){%>
-  <li>
-    <a href="/campgrounds/<%= data._id %>/details"><%= data.name %></a>
-  </li>
+  <div class="card m-3">
+    <div class="row">
+      <img class="img-fluid col-4" src="<%= data.image %> " alt="" />
+      <div class="col-8">
+        <div class="card-body">
+          <div class="card-title"><%= data.name %></div>
+          <div class="card-text"><%= data.description %></div>
+          <small class="card-text text-muted"><%= data.location %> </small>
+          <div>
+            <a
+              class="btn btn-primary mt-3"
+              href="/campgrounds/<%= data.id %>/details "
+              >Details</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <% }%>
 </ul>

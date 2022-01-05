@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 
 const campgroundSchema = new Schema({
   name: String,
-  price: Number,
-  description: String,
   location: String,
   image: String,
+  price: Number,
+  description: String,
 });
 
 const Camp = mongoose.model("Camp", campgroundSchema);
