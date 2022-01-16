@@ -1,9 +1,13 @@
+const { string } = require("joi");
 const mongoose = require("mongoose");
 // i still dont now for what it is 3 >>>
 const Schema = mongoose.Schema;
 
 const campgroundSchema = new Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true,
+  },
   location: String,
   image: String,
   price: Number,
