@@ -35,9 +35,6 @@ dbStatus.once("open", () => {
   console.log("Database connected");
 });
 
-app.listen(PORT, () => {
-  console.log(`App is listening on http://localhost:${PORT}`);
-});
 // routes
 // #get
 app.get(
@@ -101,14 +98,15 @@ app.delete(
     await Campground.findByIdAndDelete(id);
     res.redirect("/campgrounds");
   })
+);
 
-// #404
 app.use((err, req, res, next) => {
   const { status = 500, message } = err;
   res.status(status).render("error", { message });
+});
 
-app.use((req, res) => {
-  res.status(404).send("Not Found");
+app.listen(PORT, () => {
+  console.log(`App is listening on http://localhost:${PORT}`);
 });
 
 // test route for db used with postman
