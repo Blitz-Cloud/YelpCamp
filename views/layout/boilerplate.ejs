@@ -16,9 +16,14 @@
 
   <body class="d-flex vh-100 flex-column">
     <%- include("../partials/navbar") %>
-    <main class="container mt-5"><%- body %></main>
+
+    <main class="container mt-5">
+      <!-- here is where the magic is happening  -->
+      <%- body %>
+    </main>
 
     <%- include("../partials/footer") %>
+
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
