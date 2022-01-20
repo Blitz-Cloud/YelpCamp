@@ -3,10 +3,16 @@
 <div class="row mb-3">
   <h1 class="text-center mb-3">Edit campground</h1>
   <div class="col-6 offset-3">
-    <form action="/campgrounds/<%=foundData.id%>?_method=PATCH " method="post">
+    <form
+      class="validationRequired"
+      action="/campgrounds/<%=foundData.id%>?_method=PATCH "
+      method="post"
+      novalidate
+    >
       <div class="form-group mb-3">
         <label class="form-label" for="name">The new location name</label>
         <input
+          required
           class="form-control"
           type="text"
           name="name"
@@ -17,6 +23,7 @@
       <div class="form-group mb-3">
         <label class="form-label" for="location">The location</label>
         <input
+          required
           class="form-control"
           type="text"
           name="location"
@@ -27,6 +34,7 @@
       <div class="form-group mb-3">
         <label class="form-label" for="image">Image link</label>
         <input
+          required
           class="form-control"
           type="text"
           name="image"
@@ -41,6 +49,7 @@
             <span class="input-group-text">$</span>
           </div>
           <input
+            required
             id="price"
             name="price"
             type="number"
@@ -71,3 +80,20 @@
     </form>
   </div>
 </div>
+<script>
+  var forms = document.querySelectorAll(".validationRequired");
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    form.addEventListener(
+      "submit",
+      function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        form.classList.add("was-validated");
+      },
+      false
+    );
+  });
+</script>
