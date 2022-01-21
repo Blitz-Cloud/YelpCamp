@@ -37,6 +37,10 @@ dbStatus.once("open", () => {
 
 // routes
 // #get
+app.get("/", (req, res) => {
+  res.redirect("/campgrounds");
+});
+
 app.get(
   "/campgrounds",
   AsyncHandler(async (req, res) => {
