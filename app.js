@@ -8,7 +8,6 @@ const path = require("path");
 //custom imports(my code)
 const Campground = require("./models/mongoose/campground");
 const { CustomError, AsyncHandler } = require("./error/errorHandler");
-
 const app = express();
 const PORT = 8080;
 const db = "yelp-camp";
