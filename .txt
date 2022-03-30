@@ -1,0 +1,6 @@
+<!-- This func layout() is use for the template  -->
+<% layout("layout/boilerplate") %>
+
+<!-- This func partial() is use for including that partial  -->
+<%- include("../partials/navbar") %>
+
