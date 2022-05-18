@@ -1,4 +1,3 @@
-const { string } = require("joi");
 const mongoose = require("mongoose");
 // i still dont now for what it is 3 >>>
 const Schema = mongoose.Schema;

@@ -4,3 +4,5 @@
 <!-- This func partial() is use for including that partial  -->
 <%- include("../partials/navbar") %>
 
+<!-- here is where the magic is happening  -->
+ <%- body %>
